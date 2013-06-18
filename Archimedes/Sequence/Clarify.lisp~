@@ -1,0 +1,6 @@
+(defpackage :archimedes.sequence.clarify)
+
+(defun look (x c)
+  (cond
+    ((null x) nil)
+    ((eql (car x) c) (cadr x))))
