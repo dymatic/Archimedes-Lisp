@@ -1,5 +1,6 @@
-(defpackage :archimedes.sequence.manipulate
-  (:use :archimedes.sequence.common :archimedes.sequence.functional))
+(load "Functional")
+(load "Common")
+(load "Clarify")
 
 (defun removeA (x c)
   (cond
@@ -43,3 +44,7 @@
 (defun positions (x c)
   (removeA (mapcar (lambda (y) (if (eql (car y) c) (cadr y) nil)) (zip x (reverse (range (length x))))) nil))
 
+(defun churn (x c)
+  (cond 
+    ((eql c 0) nil)
+    (t (cons x (churn x (- c 1))))))

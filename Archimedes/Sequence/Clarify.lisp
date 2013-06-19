@@ -1,5 +1,3 @@
-(defpackage :archimedes.sequence.clarify)
-
 (defun look (x c)
   (cdr (cond
     ((null x) nil)

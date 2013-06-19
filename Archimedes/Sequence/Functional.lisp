@@ -1,13 +1,10 @@
-(defpackage :archimedes.sequence.functional
-	(:use :archimedes.sequence.common))
-
 ; Functions used in applying functions over lists
 (defun applyBreak (f x)
   (if (null x)
       nil
       (if (funcall f (car x))
 	  (cons (car x) (applyBreak f (cdr x)))
-	  nil)))))
+	  nil)))
 
 (defun removeBreak (f x)
   (cond
