@@ -26,9 +26,9 @@
     (t (sub (cdr x) (- c 1)))))
 
 (defun to (x c)
-  (cons (car x) (if (eql c 0)
-	      nil
-	      (drop (to (cdr x) (- c 1))))))
+  (cond
+    ((eql c 0) nil)
+    (t (cons (car x) (to (cdr x) (- c 1))))))
 
 (defun after (x y)
  (cdr (sub x (pos x y))))
@@ -48,3 +48,8 @@
   (cond 
     ((eql c 0) nil)
     (t (cons x (churn x (- c 1))))))
+
+(defun split (x c)
+  (cond
+    ((not (elemp x c)) (list x))
+    (t (cons (before x c) (split (after x c) c)))))

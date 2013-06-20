@@ -1,0 +1,2 @@
+(defun string-to-list (s)
+  (coerce s 'list))
